@@ -1,0 +1,49 @@
+<div class="card p-4 shadow-lg">
+  <div class="card-body">
+    <h4 class="card-title mb-4 text-center">Dashboard Manager</h4>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <div class="card border-info h-100">
+          <div class="card-header bg-info text-white">Utenti disponibili</div>
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              @for(user of users; track user.id){
+              <li class="list-group-item d-flex justify-content-between">
+                {{ user.username }} ({{ user.role }})
+                <button
+                  class="btn btn-sm btn-outline-primary"
+                  (click)="openEditUserModal(user)"
+                >
+                  <i class="bi bi-pencil"></i>
+                </button>
+              </li>
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <div class="card border-warning h-100">
+          <div class="card-header bg-warning text-dark">
+            Attività disponibili
+          </div>
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              @for(task of tasks; track task.id){
+                <li class="list-group-item d-flex justify-content-between">
+                  {{ task.title }} - ({{ task.status }}) - {{ task.assignedUsername }}
+                  <button
+                  class="btn btn-sm btn-outline-primary"
+                  (click)="openEditTaskModal(task)"
+                  >
+                  <i class="bi bi-pencil"></i>
+                </button>
+                </li>
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

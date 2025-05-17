@@ -1,0 +1,53 @@
+<h2 mat-dialog-title>Modifica Task</h2>
+<mat-dialog-content>
+    <form [formGroup]="form">
+        <mat-form-field class="w-100">
+            <mat-label>Titolo</mat-label>
+            <input mat input formControlName="title">
+        </mat-form-field>
+
+        <mat-form-field class="w-100">
+            <mat-label>Descrizione</mat-label>
+            <input mat input formControlName="description">
+        </mat-form-field>
+
+        <mat-form-field class="w-100">
+            <mat-label>Assegnata a:</mat-label>
+            <input mat input formControlName="assignedTo">
+        </mat-form-field>
+
+        <mat-form-field class="w-100">
+            <mat-label>Note del manager</mat-label>
+            <textarea matInput
+                      cdkTextareaAutosize
+                      #autosize="cdkTextareaAutosize"
+                      cdkAutosizeMinRows="1"
+                      cdkAutosizeMaxRows="5"
+                      formControlName="managerNotes"></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="w-100">
+            <mat-label>Note dell'operatore</mat-label>
+            <textarea matInput
+                      cdkTextareaAutosize
+                      #autosize="cdkTextareaAutosize"
+                      cdkAutosizeMinRows="1"
+                      cdkAutosizeMaxRows="5"
+                      formControlName="operatorNotes"></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="w-100">
+            <mat-label>Stato del task</mat-label>
+            <mat-select formControlName="status">
+                <mat-option value="pending">pending</mat-option>
+                <mat-option value="approved">approved</mat-option>
+                <mat-option value="in-progress">in progress</mat-option>
+                <mat-option value="done">done</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="close()">Annulla</button>
+    <button mat-raised-button color="primary" (click)="save()">Salva</button>
+</mat-dialog-actions>

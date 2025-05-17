@@ -1,0 +1,53 @@
+<form [formGroup]="form" (ngSubmit)="login()">
+    <div class="card text-center centered-card">
+        <div class="card-header">Login</div>
+        <div class="card-body">
+            <h5 class="card-title">Task Manager App</h5>
+            <p class="card-text">Inserire credenziali d'accesso</p>
+
+            <input 
+               type="text"
+               formControlName="username"
+               class="form-control mb-2"
+               placeholder="Username"
+               [class.is-invalid]="f['username'].touched && f['username'].invalid"
+            />
+            @if(f['username'].touched && f['username'].invalid){
+                @if(f['username'].errors?.['required']){
+                    <div class="text-danger small mb-2">Inserire lo username</div>
+                }
+                @if(f['username'].errors?.['email']){
+                    <div class="text-danger small mb-2">Formato email non valido</div>
+                }
+            }
+
+            <input 
+               [type]="showPassword ? 'text' : 'password'"
+               formControlName="password"
+               class="form-control mb-2"
+               placeholder="password"
+               [class.is-invalid]="f['password'].touched && f['password'].invalid"
+            />
+            <span 
+               class="input-group-text"
+               (click)="togglePassword()">
+               <i 
+                 class="bi"
+                 [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'">
+               </i>
+            </span>
+
+            @if(f['password'].touched && f['password'].invalid){
+                <div class="text-danger small mb-2">Inserire la password</div>
+            }
+
+            <button type="submit" class="btn btn-primary my-3">Login</button>
+
+            @if(errorLogin) {
+                <div class="alert alert-danger mt-3">
+                    Credenziali scorrette. Riprova.
+                </div>
+            }
+        </div>
+    </div>
+</form>

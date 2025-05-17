@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Modifica Utente</h2>
+<mat-dialog-content>
+    <form [formGroup]="form">
+        <mat-form-field class="w-100">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="username">
+        </mat-form-field>
+
+        <mat-form-field class="w-100">
+            <mat-label>Ruolo</mat-label>
+            <mat-select formControlName="role">
+                <mat-option value="gestore">Gestore</mat-option>
+                <mat-option value="operatore">Operatore</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="close()">Annulla</button>
+    <button mat-raised-button color="primary" (click)="save()">Salva</button>
+</mat-dialog-actions>

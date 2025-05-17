@@ -1,0 +1,33 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "gestore1@gmail.com",
+      "password": "password",
+      "role": "gestore"
+    },
+    {
+      "id": "2",
+      "username": "operatore1@gmail.com",
+      "password": "password",
+      "role": "operatore"
+    },
+    {
+      "id": "3",
+      "username": "prova@gmail.com",
+      "password": "prova",
+      "role": "prova"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "1",
+      "title": "Compilare report",
+      "description": "Compilare il report settimanale",
+      "assignedTo": 2,
+      "managerNotes": "",
+      "operatorNotes": "",
+      "status": "pending"
+    }
+  ]
+}
